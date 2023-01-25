@@ -29,6 +29,7 @@ public class FutureWeatherAdapter extends RecyclerView.Adapter<FutureWeatherAdap
     @NonNull
     @Override
     public WeatherViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        //绑定ViewHolder
         View view = LayoutInflater.from(mContext).inflate(R.layout.weather_item_layout, parent, false);
         WeatherViewHolder weatherViewHolder = new WeatherViewHolder(view);
         return weatherViewHolder;
@@ -36,7 +37,9 @@ public class FutureWeatherAdapter extends RecyclerView.Adapter<FutureWeatherAdap
 
     @Override
     public void onBindViewHolder(@NonNull WeatherViewHolder holder, int position) {
+        //获取位置
         DayWeatherBean WeatherBean = mWeatherBeans.get(position);
+        //设置界面控件
         holder.tvWeather.setText(WeatherBean.getWea() + "(" + WeatherBean.getDate() + ")");
         holder.tv_tem.setText(WeatherBean.getTem_day() + "°C");
         holder.tv_tem_low_high.setText(WeatherBean.getTem_night() + "°C" + "~" + WeatherBean.getTem_day() + "°C");
@@ -47,6 +50,7 @@ public class FutureWeatherAdapter extends RecyclerView.Adapter<FutureWeatherAdap
     @Override
     public int getItemCount() {
         if (mWeatherBeans != null) {
+            //返回列表长度
             return mWeatherBeans.size();
         } else {
             return 0;
@@ -60,6 +64,7 @@ public class FutureWeatherAdapter extends RecyclerView.Adapter<FutureWeatherAdap
 
         public WeatherViewHolder(@NonNull View itemView) {
             super(itemView);
+            //绑定控件
             tvWeather = itemView.findViewById(R.id.tv_weather);
             tv_tem = itemView.findViewById(R.id.tv_tem);
             tv_tem_low_high = itemView.findViewById(R.id.tv_tem_low_high);
@@ -69,6 +74,7 @@ public class FutureWeatherAdapter extends RecyclerView.Adapter<FutureWeatherAdap
     }
 
     private int getImgResOfWeather(String weaStr) {
+        //判断天气情况
         int result = 0;
         switch (weaStr) {
             case "qing":

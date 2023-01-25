@@ -12,10 +12,11 @@ import java.net.URL;
 import java.net.URLConnection;
 
 public class NetUtil {
+    //API端口
     private static final String URL_WEATHER_WITH_FUTURE = "https://yiketianqi.com/free/week?unescape=1&appid=58546483&appsecret=5ASCA3AT";
 
 
-    public static String doGet(String urlStr) {
+    public static String Get(String urlStr) {
         String result = "";
         HttpURLConnection connection = null;
         InputStreamReader inputStreamReader = null;
@@ -26,16 +27,15 @@ public class NetUtil {
             connection = (HttpURLConnection) urL.openConnection();
             connection.setRequestMethod("GET");
             connection.setConnectTimeout(5000);
-
             // 从连接中读取数据(二进制)
             InputStream inputStream = connection.getInputStream();
             inputStreamReader = new InputStreamReader(inputStream);
             // 二进制流送入缓冲区
             bufferedReader = new BufferedReader(inputStreamReader);
-
             // 从缓存区中一行行读取字符串
             StringBuilder stringBuilder = new StringBuilder();
             String line = "";
+            //获取列表
             while ((line = bufferedReader.readLine()) != null) {
                 stringBuilder.append(line);
             }
@@ -44,6 +44,7 @@ public class NetUtil {
         } catch (Exception e) {
             e.printStackTrace();
         }finally {
+            //判断如果内容为空则停止请求
             if (connection != null) {
                 connection.disconnect();
             }
@@ -70,9 +71,11 @@ public class NetUtil {
     }
 
     public static String getWeatherOfCity(String city) {
+        //创建请求链接
         String weatherUrl = URL_WEATHER_WITH_FUTURE + "&city=" + city;
         Log.d("fan", "-----"+weatherUrl);
-        String weatherResult = doGet(weatherUrl);
+        //调用Get方法获取数据
+        String weatherResult = Get(weatherUrl);
         return weatherResult;
     }
 }

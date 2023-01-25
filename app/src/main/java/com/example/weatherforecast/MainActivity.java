@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             if (msg.what == 0) {
                 String weather = (String) msg.obj;
                 Log.d("FAN", "---weather---" + weather);
-
+                //获取Gson数据
                 Gson gson = new Gson();
                 WeatherBean weatherBean = gson.fromJson(weather, WeatherBean.class);
                 updateUiOfWeather(weatherBean);
@@ -64,17 +64,20 @@ public class MainActivity extends AppCompatActivity {
             List<DayWeatherBean> dayWeathers = weatherBean.getDayWeathers();
             DayWeatherBean todayWeather = dayWeathers.get(0);
             if (todayWeather != null) {
+                //设置界面数据
                 tvTem.setText(todayWeather.getTem_day() + "°C");
                 tvWeather.setText(todayWeather.getWea() + "(" + todayWeather.getDate() + ")");
                 tvTemLowHigh.setText(todayWeather.getTem_night() + "°C" + "~" + todayWeather.getTem_day() + "°C");
                 tvWin.setText(todayWeather.getWin() + "(" + todayWeather.getWin_speed() + ")");
                 ivWeather.setImageResource(getImgResOfWeather(todayWeather.getWea_img()));
                 Toast.makeText(MainActivity.this, "天气更新成功", Toast.LENGTH_LONG).show();
+                //去除列表中的第一位城市
                 dayWeathers.remove(0);
+                //绑定RecycleView
                 futureWeatherAdapter = new FutureWeatherAdapter(this, dayWeathers);
                 rlvFutureWeather.setAdapter(futureWeatherAdapter);
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-
+                //设置布局样式
                 rlvFutureWeather.setLayoutManager(linearLayoutManager);
             } else {
                 return;
@@ -92,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void iniView() {
+        //绑定列表
         mSpinner = findViewById(R.id.sp_city);
         mCities = getResources().getStringArray(R.array.cities);
         mSpAdapter = new ArrayAdapter<>(this, R.layout.sp_item_layout, mCities);
@@ -99,8 +103,9 @@ public class MainActivity extends AppCompatActivity {
         mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                //判断点击的城市位置
                 String selectedCity = mCities[i];
-
+                //启动子线程请求网络
                 getWeatherOfCity(selectedCity);
 
             }
@@ -110,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
+        //控件绑定
         tvWeather = findViewById(R.id.tv_weather);
         tvTem = findViewById(R.id.tv_tem);
         tvWin = findViewById(R.id.tv_win);
@@ -131,12 +136,13 @@ public class MainActivity extends AppCompatActivity {
                 Message message = new Message();
                 message.what = 0;
                 message.obj = weatherOfCity;
-
+                //Handler传递信息
                 handler.sendMessage(message);
             }
         }).start();
     }
 
+    //判断天气情况选择图片
     private int getImgResOfWeather(String weaStr) {
         int result = 0;
         switch (weaStr) {
