@@ -42,3 +42,5 @@
 没有学习数据库，所以不会使用数据库，就不能进行用户城市数据的添加和增删等操作，缺乏便捷性。
 
 界面过于简陋，只看得到七天的天气信息，应借鉴其他APP的UI设计，如
+
+![image](https://github.com/dech53/WeatherForecast/blob/main/app/src/gif/Apple%E5%A4%A9%E6%B0%94UI.PNG)
