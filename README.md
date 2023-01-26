@@ -25,3 +25,6 @@
 问题：
  
 1.spinner显示了城市列表，但是在滑动列表时，选中的城市会和下拉的城市名称重叠
+
+ ![image](https://github.com/dech53/WeatherForecast/blob/main/app/src/gif/S30126-15252700.gif)
+ 
