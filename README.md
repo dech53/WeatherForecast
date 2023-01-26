@@ -23,4 +23,5 @@
 2.通过百度得知了spinner一些没有提示的功能，如android:dropDownVerticalOffset和android:overlapAnchor。
 
 问题：
+ 
 1.spinner显示了城市列表，但是在滑动列表时，选中的城市会和下拉的城市名称重叠
