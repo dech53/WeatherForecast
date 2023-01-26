@@ -28,3 +28,6 @@
 
  ![image](https://github.com/dech53/WeatherForecast/blob/main/app/src/gif/S30126-15252700.gif)
  
+提升：
+
+1.我认为在这次的考核中让我了解到了利用gson接收
