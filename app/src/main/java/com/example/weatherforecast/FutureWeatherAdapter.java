@@ -1,4 +1,10 @@
 package com.example.weatherforecast;
+/**
+ * description ：天气预报
+ * author : dech53
+ * email : 2496916936@qq.com
+ * date : 2023/1/23 20:30
+ */
 
 import android.content.Context;
 import android.content.Intent;

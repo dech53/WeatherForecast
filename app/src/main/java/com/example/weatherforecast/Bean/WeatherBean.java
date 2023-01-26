@@ -1,5 +1,10 @@
 package com.example.weatherforecast.Bean;
-
+/**
+ * description ：天气预报
+ * author : dech53
+ * email : 2496916936@qq.com
+ * date : 2023/1/23 19:50
+ */
 import androidx.core.app.NotificationCompat;
 
 import com.google.gson.annotations.SerializedName;

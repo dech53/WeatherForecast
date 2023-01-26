@@ -1,5 +1,13 @@
 package com.example.weatherforecast.Bean;
 
+/**
+ * description ：天气预报
+ * author : dech53
+ * email : 2496916936@qq.com
+ * date : 2023/1/24 19:05
+ */
+
+
 import com.google.gson.annotations.SerializedName;
 
 public class DayWeatherBean {
