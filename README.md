@@ -1,5 +1,6 @@
 # WeatherForecast
  红岩寒假考核
+
  APP效果图：
 
 ![image](https://github.com/dech53/WeatherForecast/blob/main/app/src/gif/S30126-14270638_1.gif)
