@@ -23,7 +23,7 @@
             android:layout_height="48dp"
             android:backgroundTint="@color/white"
             android:entries="@array/cities"
-            android:overlapAnchor="true"
+            android:overlapAnchor="false"
             android:popupBackground="@color/trasn"
             android:spinnerMode="dropdown" />
     </LinearLayout>
