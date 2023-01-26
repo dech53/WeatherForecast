@@ -1,5 +1,6 @@
 # WeatherForecast
  红岩寒假考核
+
  APP效果图：
 
 ![image](https://github.com/dech53/WeatherForecast/blob/main/app/src/gif/S30126-14270638_1.gif)
@@ -23,4 +24,21 @@
 2.通过百度得知了spinner一些没有提示的功能，如android:dropDownVerticalOffset和android:overlapAnchor。
 
 问题：
+ 
 1.spinner显示了城市列表，但是在滑动列表时，选中的城市会和下拉的城市名称重叠
+
+ ![image](https://github.com/dech53/WeatherForecast/blob/main/app/src/gif/S30126-15252700.gif)
+ 
+ 通过查询，使用了android:overlapAnchor="false"来防止城市名称重叠
+ 
+提升：
+
+1.我认为在这次的考核中让我了解到了利用gson接收的便利之处，了解到了网络请求，获知了关于spinner列表的更多模式，也对数据的获取和修改以及控件绑定失误的问题的解决有了相关的经验。
+
+2.APP中还缺少了增加和删除城市的功能，可以利用数据库储存城市列表数据，未来学会了可以对APP的功能进一步的增多。
+
+待提升的地方：
+
+没有学习数据库，所以不会使用数据库，就不能进行用户城市数据的添加和增删等操作，缺乏便捷性。
+
+界面过于简陋，只看得到七天的天气信息，应借鉴其他APP的UI设计，如
